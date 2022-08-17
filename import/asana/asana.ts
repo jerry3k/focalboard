@@ -7,122 +7,122 @@
 //   "Set quicktype target language"
 
 export interface Asana {
-    data: Datum[];
+  data: Datum[];
 }
 
 export interface Datum {
-    gid:              string;
-    assignee:         null;
-    assignee_status:  AssigneeStatus;
-    completed:        boolean;
-    completed_at:     null;
-    created_at:       string;
-    custom_fields:    CustomField[];
-    due_at:           null;
-    due_on:           null;
-    followers:        Workspace[];
-    hearted:          boolean;
-    hearts:           any[];
-    liked:            boolean;
-    likes:            any[];
-    memberships:      Membership[];
-    modified_at:      string;
-    name:             string;
-    notes:            string;
-    num_hearts:       number;
-    num_likes:        number;
-    parent:           Workspace | null;
-    permalink_url:    string;
-    projects:         Workspace[];
-    resource_type:    WorkspaceResourceType;
-    start_on:         null;
-    subtasks:         Datum[];
-    tags:             any[];
-    resource_subtype: ResourceSubtype;
-    workspace:        Workspace;
+  gid: string;
+  assignee: { gid: string; name: string };
+  assignee_status: AssigneeStatus;
+  completed: boolean;
+  completed_at: null;
+  created_at: string;
+  custom_fields: CustomField[];
+  due_at: null;
+  due_on: Date;
+  followers: Workspace[];
+  hearted: boolean;
+  hearts: any[];
+  liked: boolean;
+  likes: any[];
+  memberships: Membership[];
+  modified_at: string;
+  name: string;
+  notes: string;
+  num_hearts: number;
+  num_likes: number;
+  parent: Workspace | null;
+  permalink_url: string;
+  projects: Workspace[];
+  resource_type: WorkspaceResourceType;
+  start_on: null;
+  subtasks: Datum[];
+  tags: any[];
+  resource_subtype: ResourceSubtype;
+  workspace: Workspace;
 }
 
 export enum AssigneeStatus {
-    Upcoming = "upcoming",
+  Upcoming = "upcoming",
 }
 
 export interface CustomField {
-    gid:              string;
-    enabled:          boolean;
-    enum_options:     Enum[];
-    enum_value:       Enum | null;
-    name:             CustomFieldName;
-    created_by:       null;
-    resource_subtype: Type;
-    resource_type:    CustomFieldResourceType;
-    type:             Type;
+  gid: string;
+  enabled: boolean;
+  enum_options: Enum[];
+  enum_value: Enum | null;
+  name: CustomFieldName;
+  created_by: null;
+  resource_subtype: Type;
+  resource_type: CustomFieldResourceType;
+  type: Type;
 }
 
 export interface Enum {
-    gid:           string;
-    color:         Color;
-    enabled:       boolean;
-    name:          EnumOptionName;
-    resource_type: EnumOptionResourceType;
+  gid: string;
+  color: Color;
+  enabled: boolean;
+  name: EnumOptionName;
+  resource_type: EnumOptionResourceType;
 }
 
 export enum Color {
-    Blue = "blue",
-    BlueGreen = "blue-green",
-    CoolGray = "cool-gray",
-    Orange = "orange",
-    Red = "red",
-    Yellow = "yellow",
-    YellowOrange = "yellow-orange",
+  Blue = "blue",
+  BlueGreen = "blue-green",
+  CoolGray = "cool-gray",
+  Orange = "orange",
+  Red = "red",
+  Yellow = "yellow",
+  YellowOrange = "yellow-orange",
 }
 
 export enum EnumOptionName {
-    Deferred = "Deferred",
-    Done = "Done",
-    High = "High",
-    InProgress = "In Progress",
-    Low = "Low",
-    Medium = "Medium",
-    NotStarted = "Not Started",
-    Waiting = "Waiting",
+  Deferred = "Deferred",
+  Done = "Done",
+  High = "High",
+  InProgress = "In Progress",
+  Low = "Low",
+  Medium = "Medium",
+  NotStarted = "Not Started",
+  Waiting = "Waiting",
 }
 
 export enum EnumOptionResourceType {
-    EnumOption = "enum_option",
+  EnumOption = "enum_option",
 }
 
 export enum CustomFieldName {
-    Priority = "Priority",
-    TaskProgress = "Task Progress",
+  Priority = "Priority",
+  TaskProgress = "Task Progress",
 }
 
 export enum Type {
-    Enum = "enum",
+  Enum = "enum",
 }
 
 export enum CustomFieldResourceType {
-    CustomField = "custom_field",
+  CustomField = "custom_field",
 }
 
 export interface Workspace {
-    gid:           string;
-    name:          string;
-    resource_type: WorkspaceResourceType;
+  gid: string;
+  name: string;
+  resource_type: WorkspaceResourceType;
 }
 
 export enum WorkspaceResourceType {
-    Project = "project",
-    Section = "section",
-    Task = "task",
-    User = "user",
-    Workspace = "workspace",
+  Project = "project",
+  Section = "section",
+  Task = "task",
+  User = "user",
+  Workspace = "workspace",
 }
 
 export interface Membership {
-    project: Workspace;
-    section: Workspace;
+  project: Workspace;
+  section: Workspace;
 }
 
 export enum ResourceSubtype {
-    DefaultTask = "default_task",
+  DefaultTask = "default_task",
 }
